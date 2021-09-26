@@ -105,7 +105,45 @@ You create a Bouncer with custom options and then can use the provided 'bounce' 
 
 <br />
 
-----
+### saveAddressLists ( Default: null )
+
+- Type: Object
+- This object is used to configure persisting the bouncers blackList, whiteList or both ( Example usage at bottom of page )
+
+Example config to save both whiteList and blackList
+
+```
+...
+saveAddressList: {
+  // Directory to save data to
+  directory: path.join(__dirname, 'bouncerOneData'),
+
+  // Boolean for either blackList or whiteList to save or not
+  blackList: true,
+  whiteList: true,
+},
+...
+```
+
+
+<br />
+
+## Bouncer methods
+---
+
+### Bouncer.addWhiteList( address : string )
+- Takes in a string represnting an address, and will push that to the whiteList
+<br />
+
+### Bouncer.addBlackList( address : string )
+- Takes in a string represnting an address, and will push that to the whiteList
+<br />
+
+### Bouncer.writeAddressLists()
+- Used in conglomerate with 'options.saveAddressLists', this method must be called before the node process ends to save the whiteList / blackList or both. ( See example at bottom of page )
+
+---
+<br />
 
 ## Using Multiple Bouncers
 
@@ -134,5 +172,48 @@ If you would like different rate limits or options on different resources, you c
   app.post('/login', bounce(bouncerLogin), (req, res, next) => { ... });
 
   app.get('/data', bounce(bouncerData), (req, res, next) => { ... });
+
+```
+
+----
+<br />
+
+## Persisting a bouncers whiteList and blackList
+
+Providing a 'saveAddressList' object in the configuration will allow you to persist either the whiteList, blackList or both. If using multiple bouncers, each bouncer will need a seperate directory.
+
+```
+  const path = require('path');
+  const express = require('express');
+  const { Bouncer, bounce } = require('../lib/index');
+
+  const bouncer = new Bouncer({
+    reqLimit: 10,
+    windowDur: 30000,
+    saveAddressLists: {
+      directory: path.join(__dirname, 'bouncerData'),
+      whiteList: true,
+      blackList: true,
+    },
+  });
+
+  const app = express();
+  app.use(bounce(bouncer));
+
+  app.get('/', (req, res, next) => {
+    res.statusCode = 200;
+    res.send('hello world');
+  });
+
+  const server = app.listen(1337, () => console.log('server listening on port 1337'));
+
+  process.on('SIGINT', () => {
+    server.close();
+    bouncer.writeAddressLists();
+  });
+  process.on('exit', () => {
+    server.close();
+    bouncer.writeAddressLists();
+  });
 
 ```

@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/r0bertcode/express-bouncer.git"
   },
-  "keywords": [],
+  "keywords": [
+    "express",
+    "ratelimit"
+  ],
   "author": "Robert Lopez",
   "license": "MIT",
   "bugs": {
