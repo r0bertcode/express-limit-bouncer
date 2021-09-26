@@ -4,24 +4,19 @@
   "description": "Express rate limiting middleware",
   "main": "lib/index.js",
   "directories": {
-    "lib": "lib",
-    "test": "test"
+    "lib": "lib"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r0bertcode/express-bouncer.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Robert Lopez",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/r0bertcode/express-bouncer/issues"
   },
   "homepage": "https://github.com/r0bertcode/express-bouncer#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "dependencies": {}
 }
