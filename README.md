@@ -13,7 +13,7 @@ You create a Bouncer with custom options and then can use the provided 'bounce' 
   const { Bouncer, bounce } = require('express-limit-bouncer');
 
   const bouncer = new Bouncer({
-    rateLimit: 100,
+    reqLimit: 100,
     windowDur: 1000 * 60 * 5,
   });
 
@@ -154,7 +154,7 @@ If you would like different rate limits or options on different resources, you c
   const { Bouncer, bounce } = require('express-limit-bouncer');
 
   const bouncerLogin = new Bouncer({
-    rateLimit: 100,
+    reqLimit: 100,
     windowDur: 1000 * 60 * 5,
   });
 
@@ -163,7 +163,7 @@ If you would like different rate limits or options on different resources, you c
     blackListCB: (req, address) => {
       console.log(`Address: ${address} has been blackListed`);
     },
-    rateLimit: 1000,
+    reqLimit: 1000,
     windowDur: 1000 * 60 * 5,
   });
 

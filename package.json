@@ -1,6 +1,6 @@
 {
   "name": "express-limit-bouncer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express rate limiting middleware",
   "main": "lib/index.js",
   "directories": {
