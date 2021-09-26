@@ -1,5 +1,5 @@
 {
-  "name": "express-bouncer",
+  "name": "express-limit-bouncer",
   "version": "1.0.0",
   "description": "Express rate limiting middleware",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/r0bertcode/express-bouncer.git"
+    "url": "git+https://github.com/r0bertcode/express-limit-bouncer.git"
   },
   "keywords": [
     "express",
@@ -18,8 +18,8 @@
   "author": "Robert Lopez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/r0bertcode/express-bouncer/issues"
+    "url": "https://github.com/r0bertcode/express-limit-bouncer/issues"
   },
-  "homepage": "https://github.com/r0bertcode/express-bouncer#readme",
+  "homepage": "https://github.com/r0bertcode/express-limit-bouncer#readme",
   "dependencies": {}
 }

@@ -1,4 +1,4 @@
-# express-bouncer
+# express-limit-bouncer
 
 ### Express rate limiting middleware
 
@@ -10,7 +10,7 @@ You create a Bouncer with custom options and then can use the provided 'bounce' 
 
 ```
   const express = require('express');
-  const { Bouncer, bounce } = require('express-bouncer');
+  const { Bouncer, bounce } = require('express-limit-bouncer');
 
   const bouncer = new Bouncer({
     rateLimit: 100,
@@ -151,7 +151,7 @@ If you would like different rate limits or options on different resources, you c
 
 ```
   const express = require('express');
-  const { Bouncer, bounce } = require('express-bouncer');
+  const { Bouncer, bounce } = require('express-limit-bouncer');
 
   const bouncerLogin = new Bouncer({
     rateLimit: 100,
@@ -185,7 +185,7 @@ Providing a 'saveAddressList' object in the configuration will allow you to pers
 ```
   const path = require('path');
   const express = require('express');
-  const { Bouncer, bounce } = require('../lib/index');
+  const { Bouncer, bounce } = require('express-limit-bouncer');
 
   const bouncer = new Bouncer({
     reqLimit: 10,
